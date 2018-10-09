@@ -98,6 +98,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return cell
     }
     
+    //TODO: - total label txt
     func getTotal(){
         totalTxt.text = String(sumCount)
     }
