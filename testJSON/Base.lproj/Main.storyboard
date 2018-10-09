@@ -70,9 +70,19 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLq-Xe-B1n">
                                 <rect key="frame" x="0.0" y="20" width="375" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYj-XJ-qJ0">
+                                        <rect key="frame" x="166.5" y="14.5" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="LYj-XJ-qJ0" firstAttribute="centerX" secondItem="PLq-Xe-B1n" secondAttribute="centerX" id="25W-GN-VBj"/>
                                     <constraint firstAttribute="height" constant="50" id="bcC-W7-rpY"/>
+                                    <constraint firstItem="LYj-XJ-qJ0" firstAttribute="centerY" secondItem="PLq-Xe-B1n" secondAttribute="centerY" id="evh-K4-1Jj"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gc-NB-hDK">
@@ -102,6 +112,7 @@
                     <connections>
                         <outlet property="MChart" destination="5gc-NB-hDK" id="8ht-yG-YOv"/>
                         <outlet property="tableView" destination="vnC-TG-0ji" id="cma-eb-Qh6"/>
+                        <outlet property="totalTxt" destination="LYj-XJ-qJ0" id="zjd-hO-4GT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
