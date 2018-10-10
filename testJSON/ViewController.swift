@@ -85,6 +85,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }.resume()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return gold.count
     }

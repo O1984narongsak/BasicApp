@@ -88,11 +88,13 @@ class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISear
         cell.noTxt.text = invent[indexPath.row].item_name
         cell.skuTxt.text = invent[indexPath.row].item_sku
         print(invent[indexPath.row].item_sku)
-        cell.stockTxt.text = "Available"
+        
         let a = Int(invent[indexPath.row].item_count)!
         if a < 200 {
+             cell.stockTxt.text = "!Alert"
              cell.stockTxt.textColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         } else {
+            cell.stockTxt.text = "Available"
             cell.stockTxt.textColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
         }
         return cell
