@@ -46,7 +46,7 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         name.text = nameP
         urlP = "https://office.mtkserver.com/result_account/\(nameP)/08/2018"
         downloadJson()
-
+//        getTotal()
         // Do any additional setup after loading the view.
     }
     
@@ -136,5 +136,13 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         }
     }
     
-
+    @IBAction func toMultiChart(_ sender: Any) {
+        performSegue(withIdentifier: "toMutiChart", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toMutiChart" {
+            let secondVC = segue.destination as! MultiVC
+        }
+    }
 }

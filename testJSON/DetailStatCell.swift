@@ -15,6 +15,9 @@ class DetailStatCell: UITableViewCell {
     
     @IBOutlet weak var outTxt: UILabel!
     
+    @IBOutlet weak var skuNoTxt: UILabel!
+    @IBOutlet weak var sNoTxt: UILabel!
+    @IBOutlet weak var detailTxt: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

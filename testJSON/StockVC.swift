@@ -8,9 +8,10 @@
 
 import UIKit
 
-class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
       final let url = URL(string:"https://office.mtkserver.com/get_shop_order/get_inventory")
     
@@ -20,11 +21,12 @@ class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var countS = [String]()
     var countD = [Double]()
     var sumCount : Double = 0
+    var currentSKU = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
+        setUpTableView()
+        setUpSearchBar()
         downloadJson()
         // Do any additional setup after loading the view.
     }
@@ -62,10 +64,6 @@ class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 print(self.countS)
                 print(self.skuNo)
                 print(self.sumCount)
-//
-//                self.getTotal()
-                //
-                //                self.setChart(values: self.countChart)
                 self.tableView.reloadData()
                 
                 
@@ -89,9 +87,27 @@ class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         cell.countTxt.text = invent[indexPath.row].item_count
         cell.noTxt.text = invent[indexPath.row].item_name
         cell.skuTxt.text = invent[indexPath.row].item_sku
-        
+        print(invent[indexPath.row].item_sku)
+        cell.stockTxt.text = "Available"
+        let a = Int(invent[indexPath.row].item_count)!
+        if a < 200 {
+             cell.stockTxt.textColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        } else {
+            cell.stockTxt.textColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+        }
         return cell
     }
+    
+    func setUpTableView(){
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    
+    func setUpSearchBar(){
+        searchBar.delegate = self
+    }
+    
 
 
 

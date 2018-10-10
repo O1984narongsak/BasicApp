@@ -13,6 +13,8 @@ class StockCell: UITableViewCell {
     @IBOutlet weak var noTxt: UILabel!
     @IBOutlet weak var skuTxt: UILabel!
     @IBOutlet weak var countTxt: UILabel!
+    @IBOutlet weak var stockTxt: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

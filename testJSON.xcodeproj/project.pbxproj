@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		42F2CCF861DD6758F3513C97 /* Pods_testJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E39C9D513EA847559083BBF /* Pods_testJSON.framework */; };
+		F112E42C216E067D00B216C9 /* MultiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F112E42B216E067D00B216C9 /* MultiVC.swift */; };
 		F148CD81216C7F5E0020A7D4 /* StatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F148CD80216C7F5E0020A7D4 /* StatVC.swift */; };
 		F148CD83216C7F970020A7D4 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F148CD82216C7F970020A7D4 /* Stat.swift */; };
 		F148CD85216C834E0020A7D4 /* StatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F148CD84216C834D0020A7D4 /* StatTableViewCell.swift */; };
@@ -30,6 +31,7 @@
 		3E39C9D513EA847559083BBF /* Pods_testJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97DF7202903C4E674A4C3A5A /* Pods-testJSON.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testJSON.release.xcconfig"; path = "Pods/Target Support Files/Pods-testJSON/Pods-testJSON.release.xcconfig"; sourceTree = "<group>"; };
 		EA7F3372A57DB4EB83247B9D /* Pods-testJSON.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testJSON.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testJSON/Pods-testJSON.debug.xcconfig"; sourceTree = "<group>"; };
+		F112E42B216E067D00B216C9 /* MultiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiVC.swift; sourceTree = "<group>"; };
 		F148CD80216C7F5E0020A7D4 /* StatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatVC.swift; sourceTree = "<group>"; };
 		F148CD82216C7F970020A7D4 /* Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
 		F148CD84216C834D0020A7D4 /* StatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTableViewCell.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				F148CD8A216CBA930020A7D4 /* StockVC.swift */,
 				F148CD8C216CBD080020A7D4 /* StockCell.swift */,
 				F148CDB2216DD3A10020A7D4 /* LineChartVC.swift */,
+				F112E42B216E067D00B216C9 /* MultiVC.swift */,
 				F149B7EF216B4D17005B74B4 /* Main.storyboard */,
 				F149B7F2216B4D1A005B74B4 /* Assets.xcassets */,
 				F149B7F4216B4D1A005B74B4 /* LaunchScreen.storyboard */,
@@ -239,6 +242,7 @@
 				F148CD83216C7F970020A7D4 /* Stat.swift in Sources */,
 				F149B7FE216B51BB005B74B4 /* DateCell.swift in Sources */,
 				F148CD8D216CBD080020A7D4 /* StockCell.swift in Sources */,
+				F112E42C216E067D00B216C9 /* MultiVC.swift in Sources */,
 				F148CD85216C834E0020A7D4 /* StatTableViewCell.swift in Sources */,
 				F148CD89216C91140020A7D4 /* DetailStatCell.swift in Sources */,
 				F149B7EC216B4D17005B74B4 /* AppDelegate.swift in Sources */,
