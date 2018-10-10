@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vnC-TG-0ji">
-                                <rect key="frame" x="0.0" y="414" width="375" height="204"/>
+                                <rect key="frame" x="0.0" y="214" width="375" height="404"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DateCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DateCell" rowHeight="102" id="ysK-kd-Vau" customClass="DateCell" customModule="testJSON" customModuleProvider="target">
@@ -86,26 +86,37 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gc-NB-hDK">
-                                <rect key="frame" x="0.0" y="114" width="375" height="300"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Omc-Cx-MX2">
+                                        <rect key="frame" x="142.5" y="32.5" width="90" height="35"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <state key="normal" title="LineChart"/>
+                                        <connections>
+                                            <action selector="toLineBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="auV-8q-Nqn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="bQ9-07-iY1"/>
+                                    <constraint firstItem="Omc-Cx-MX2" firstAttribute="centerY" secondItem="5gc-NB-hDK" secondAttribute="centerY" id="N0P-gM-8AU"/>
+                                    <constraint firstAttribute="height" constant="100" id="iC4-xa-GPr"/>
+                                    <constraint firstItem="Omc-Cx-MX2" firstAttribute="centerX" secondItem="5gc-NB-hDK" secondAttribute="centerX" id="pvW-sL-Zdw"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="5gc-NB-hDK" firstAttribute="top" secondItem="PLq-Xe-B1n" secondAttribute="bottom" id="0mE-KQ-RhE"/>
+                            <constraint firstItem="5gc-NB-hDK" firstAttribute="top" secondItem="PLq-Xe-B1n" secondAttribute="bottom" id="28D-B8-F4Y"/>
                             <constraint firstItem="PLq-Xe-B1n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Dgv-0G-cbT"/>
                             <constraint firstItem="vnC-TG-0ji" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Dl3-hC-LEs"/>
                             <constraint firstItem="PLq-Xe-B1n" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="IaE-5h-Tki"/>
-                            <constraint firstItem="5gc-NB-hDK" firstAttribute="top" secondItem="PLq-Xe-B1n" secondAttribute="bottom" id="LzH-Hw-v7w"/>
+                            <constraint firstItem="vnC-TG-0ji" firstAttribute="top" secondItem="5gc-NB-hDK" secondAttribute="bottom" id="T6c-ZL-4N8"/>
                             <constraint firstItem="vnC-TG-0ji" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="T7E-az-OLr"/>
+                            <constraint firstItem="5gc-NB-hDK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UDi-PV-3qs"/>
                             <constraint firstItem="vnC-TG-0ji" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UJq-Ki-jGL"/>
-                            <constraint firstItem="5gc-NB-hDK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="c1P-XD-kzB"/>
+                            <constraint firstItem="5gc-NB-hDK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cQr-lG-RSD"/>
                             <constraint firstItem="PLq-Xe-B1n" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fQ3-71-Yh0"/>
-                            <constraint firstItem="vnC-TG-0ji" firstAttribute="top" secondItem="5gc-NB-hDK" secondAttribute="bottom" id="xro-nu-jHv"/>
-                            <constraint firstItem="5gc-NB-hDK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="y0D-Np-8v1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -114,11 +125,44 @@
                         <outlet property="MChart" destination="5gc-NB-hDK" id="8ht-yG-YOv"/>
                         <outlet property="tableView" destination="vnC-TG-0ji" id="cma-eb-Qh6"/>
                         <outlet property="totalTxt" destination="LYj-XJ-qJ0" id="zjd-hO-4GT"/>
+                        <segue destination="yNH-iX-xuJ" kind="show" identifier="toLineChart" id="IVV-CQ-JkY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="865" y="-571"/>
+        </scene>
+        <!--Line ChartVC-->
+        <scene sceneID="FHQ-Sq-3Ib">
+            <objects>
+                <viewController storyboardIdentifier="LineChartVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yNH-iX-xuJ" customClass="LineChartVC" customModule="testJSON" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ABK-Lx-kvR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ce-mh-QEV" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="56.5" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="554" id="ky4-4q-Y1k"/>
+                                    <constraint firstAttribute="width" constant="375" id="wZh-2u-Gga"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6ce-mh-QEV" firstAttribute="centerX" secondItem="ABK-Lx-kvR" secondAttribute="centerX" id="IZR-FF-aSW"/>
+                            <constraint firstItem="6ce-mh-QEV" firstAttribute="centerY" secondItem="ABK-Lx-kvR" secondAttribute="centerY" id="MaW-g8-OuP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cQZ-ps-3Lu"/>
+                    </view>
+                    <connections>
+                        <outlet property="linChart" destination="6ce-mh-QEV" id="z8K-q5-1ss"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ej-bf-JBt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1861.5999999999999" y="-572.56371814092961"/>
         </scene>
         <!--Order-->
         <scene sceneID="KQf-wU-eQN">

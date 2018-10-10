@@ -103,7 +103,22 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         totalTxt.text = String(sumCount)
     }
     
-//    func setLineChart(name:[String],vaule:[Double]){
+    //MARK: - to chart Line
+    
+    @IBAction func toLineBtn(_ sender: UIButton) {
+        performSegue(withIdentifier: "toLineChart", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toLineChart" {
+            let secondVC = segue.destination as! LineChartVC
+            
+            secondVC.test = countChart
+            secondVC.item = Date
+            
+        }
+    }
+    //    func setLineChart(name:[String],vaule:[Double]){
 //        var lineArray:[ChartDataEntry] = []
 //        for i in 0..<name.count {
 //            let data:ChartDataEntry = ChartDataEntry(x: Double(i),y:vaule[i])
