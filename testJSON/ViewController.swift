@@ -75,7 +75,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 
                 self.getTotal()
 //
-//                self.setChart(values: self.countChart)
+//                self.setLineChart(name: self.Date, vaule: self.countChart )
                 self.tableView.reloadData()
                 
                 
@@ -102,62 +102,22 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func getTotal(){
         totalTxt.text = String(sumCount)
     }
-
-    //MARK: - Chart Setup View
-//    func setChart(values: [Double]){
-//        MChart.noDataText = "No data available!"
-//        for i in 0..<values.count {
-//            print("chart point : \(values[i])")
-//            let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
-//            dataEntries.append(dataEntry)
+    
+//    func setLineChart(name:[String],vaule:[Double]){
+//        var lineArray:[ChartDataEntry] = []
+//        for i in 0..<name.count {
+//            let data:ChartDataEntry = ChartDataEntry(x: Double(i),y:vaule[i])
+//            lineArray.append(data)
 //        }
-//        let line1 = LineChartDataSet(values: dataEntries, label: "Units Consumed")
-//        line1.colors = [NSUIColor.blue]
-//        line1.mode = .cubicBezier
-//        line1.cubicIntensity = 0.2
+//        let linedataset:LineChartDataSet = LineChartDataSet(values: lineArray, label: "test")
+//        linedataset.setColor(#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1))
 //
-//        let gredient = getGredientFilling()
-//        line1.fill = Fill.fillWithLinearGradient(gredient, angle: 90.0)
-//        line1.drawFilledEnabled = true
-//
-//        let data = LineChartData()
-//        data.addDataSet(line1)
-//        MChart.data = data
-//        MChart.setScaleEnabled(false)
-//        MChart.animate(xAxisDuration: 1.5)
-//        MChart.drawGridBackgroundEnabled = false
-//        MChart.xAxis.drawAxisLineEnabled = false
-//        MChart.xAxis.drawGridLinesEnabled = false
-//        MChart.leftAxis.drawAxisLineEnabled = false
-//        MChart.leftAxis.drawGridLinesEnabled = false
-//        MChart.rightAxis.drawAxisLineEnabled = false
-//        MChart.rightAxis.drawGridLinesEnabled = false
-//        MChart.legend.enabled = false
-//        MChart.xAxis.enabled = false
-//        MChart.leftAxis.enabled = false
-//        MChart.rightAxis.enabled = false
-//        MChart.xAxis.drawLabelsEnabled = false
-//
+//        let linedata:LineChartData = LineChartData(dataSet: linedataset)
+//        MChart.data = linedata
+//        MChart.animate(xAxisDuration: 2, easingOption: .easeInBounce)
+//        MChart.animate(yAxisDuration: 2, easingOption: .easeInBounce)
 //    }
-//
-//    private func getGredientFilling() -> CGGradient {
-//        //TODO: - Setting fill gradien color
-//
-//        let coloTop = UIColor(red: 141/255, green: 133/255, blue: 220/255, alpha: 1).cgColor
-//        let coloBot = UIColor(red: 230/255, green: 155/255, blue: 210/255, alpha: 1).cgColor
-//
-//        //TODO: - Color of gradient
-//
-//        let gradientColors = [ coloTop,coloBot] as CFArray
-//
-//        //TODO: - Positioning of the gradient
-//
-//        let colorLocations: [CGFloat] = [ 0.7, 0.0 ]
-//
-//        //TODO: - Gredient bject
-//
-//        return CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations)!
-//    }
+
 
 
 }

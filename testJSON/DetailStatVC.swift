@@ -9,6 +9,10 @@
 import UIKit
 
 class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    private struct Palette {
+        static let red = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+    }
 
     @IBOutlet weak var name: UILabel!
     
@@ -122,10 +126,15 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     func getTotal(){
         totalIN.text = String(format:"%.2f",sumIn)
-        totalOut.text = String(sumOut)
-        gapTxt.text = String(format:"%.2f",gapInOut)
+        totalOut.text = String(format:"%.2f",sumOut)
+        if gapInOut > 0 {
+            gapTxt.textColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+         gapTxt.text = String(format:"%.2f",gapInOut)
+        } else {
+            gapTxt.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+         gapTxt.text = String(format:"%.2f",gapInOut)
+        }
     }
-    
     
 
 }

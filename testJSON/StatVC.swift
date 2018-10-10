@@ -12,7 +12,7 @@ class StatVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var name = ["mgd_month","mgd_month","beauty_month","jew_month"]
+    var name = ["mgd_month","mtk_month","beauty_month","jew_month"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class StatVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 80
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
