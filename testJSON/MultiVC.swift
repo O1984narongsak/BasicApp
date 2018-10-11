@@ -31,8 +31,8 @@ class MultiVC: UIViewController {
         lineChartV.setScaleEnabled(true)
         lineChartV.drawGridBackgroundEnabled = false
         lineChartV.pinchZoomEnabled = true
-        lineChartV.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        lineChartV.borderColor = NSUIColor.black
+        lineChartV.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        lineChartV.borderColor = NSUIColor.white
         lineChartV.borderLineWidth = 1.0
         lineChartV.drawBordersEnabled = true
         
@@ -40,7 +40,7 @@ class MultiVC: UIViewController {
         
         let xAxis = lineChartV.xAxis
         xAxis.labelFont = NSUIFont.systemFont(ofSize: CGFloat(12.0))
-        xAxis.labelTextColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
+        xAxis.labelTextColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         xAxis.drawGridLinesEnabled = true
         xAxis.drawAxisLineEnabled = true
         xAxis.labelPosition = .bottom
@@ -75,7 +75,7 @@ class MultiVC: UIViewController {
         set1 = LineChartDataSet(values: yVals1, label: "Income")
         set1.axisDependency = .left
         set1.colors = [#colorLiteral(red: 0.215686274509804, green: 0.709803921568627, blue: 0.898039215686275, alpha: 1.0)]
-        set1.circleColors = [NSUIColor.lightGray]
+        set1.circleColors = [NSUIColor.purple]
         set1.lineWidth = 2.0
         set1.circleRadius = 3.0
         set1.fillAlpha = 65 / 255.0
@@ -88,24 +88,24 @@ class MultiVC: UIViewController {
         set2 = LineChartDataSet(values: yVals2, label: "Payment")
         set2.axisDependency = .right
         set2.colors = [NSUIColor.red]
-        set2.circleColors = [NSUIColor.darkGray]
+        set2.circleColors = [NSUIColor.orange]
         set2.lineWidth = 2.0
         set2.circleRadius = 3.0
         set2.fillAlpha = 65 / 255.0
         set2.fillColor = NSUIColor.red
-        set2.highlightColor = NSUIColor.red
+        set2.highlightColor = NSUIColor.white
         set2.highlightEnabled = true
         set2.drawCircleHoleEnabled = true
         
-        set3 = LineChartDataSet(values: yVals2, label: "Payment")
+        set3 = LineChartDataSet(values: yVals3, label: "gap")
         set3.axisDependency = .right
-        set3.colors = [NSUIColor.red]
-        set3.circleColors = [NSUIColor.darkGray]
+        set3.colors = [NSUIColor.green]
+        set3.circleColors = [NSUIColor.white]
         set3.lineWidth = 2.0
         set3.circleRadius = 3.0
         set3.fillAlpha = 65 / 255.0
         set3.fillColor = NSUIColor.green
-        set3.highlightColor = NSUIColor.green
+        set3.highlightColor = NSUIColor.yellow
         set3.highlightEnabled = true
         set3.drawCircleHoleEnabled = true
  
@@ -116,7 +116,7 @@ class MultiVC: UIViewController {
         dataSets.append(set3)
         
         let data = LineChartData(dataSets: dataSets)
-        data.setValueTextColor(#colorLiteral(red: 0.3098039329, green: 0.2039215714, blue: 0.03921568766, alpha: 1))
+        data.setValueTextColor(#colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1))
         data.setValueFont(NSUIFont(name: "HelveticaNeue-Light", size: CGFloat(9.0)))
         lineChartV.data = data
         
