@@ -84,7 +84,13 @@ class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISear
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "StockCell") as? StockCell else { return UITableViewCell() }
         
-        cell.countTxt.text = invent[indexPath.row].item_count
+        let price = Double(invent[indexPath.row].item_count)
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        let dec = formatter.string(for: price)
+
+        cell.countTxt.text = dec
         cell.noTxt.text = invent[indexPath.row].item_name
         cell.skuTxt.text = invent[indexPath.row].item_sku
         print(invent[indexPath.row].item_sku)
@@ -113,4 +119,19 @@ class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISear
 
 
 
+}
+
+//MARK: - Format Number
+
+extension Double {
+    static let twoFractionDigits: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }()
+    var formatted: String {
+        return Double.twoFractionDigits.string(for: self) ?? ""
+    }
 }
