@@ -102,7 +102,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell") as? DateCell else { return UITableViewCell() }
         
-        cell.countTxt.text = gold[indexPath.row].count
+        //TODO: - format number
+        let price = Double(gold[indexPath.row].count)
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        let formatCount = formatter.string(for: price)
+        print(formatCount as Any)
+        cell.countTxt.text = formatCount
         cell.dateTxt.text = gold[indexPath.row].date
         
         return cell
@@ -111,7 +117,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //TODO: - total label txt
     
     func getTotal(){
-        totalTxt.text = String(sumCount)
+        
+        let su = sumCount
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        let sumC = formatter.string(for: su )
+        
+        totalTxt.text = sumC
     }
     
     //MARK: - BTN VC segue to Chart Line VC
@@ -131,4 +144,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
 
 }
+
+//MARK: - Format Number
+
+
 

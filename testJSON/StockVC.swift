@@ -89,7 +89,7 @@ class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISear
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         let dec = formatter.string(for: price)
-
+        
         cell.countTxt.text = dec
         cell.noTxt.text = invent[indexPath.row].item_name
         cell.skuTxt.text = invent[indexPath.row].item_sku

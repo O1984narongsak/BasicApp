@@ -126,22 +126,46 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DetailStatCell") as? DetailStatCell else { return UITableViewCell() }
         
-        cell.inTxt.text = stat[indexPath.row].m_in
-        cell.outTxt.text = stat[indexPath.row].m_out
+        let mO = Double(stat[indexPath.row].m_out)
+        let mI = Double(stat[indexPath.row].m_in)
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+//        formatter.locale = NSLocale(localeIdentifier: "th_TH") as Locale
+        let mIn = formatter.string(for: mI)
+        let mOut = formatter.string(for: mO)
+        
+        cell.inTxt.text = mIn
+        cell.outTxt.text = mOut
         cell.dateTxt.text = stat[indexPath.row].date
         
         return cell
     }
     
     func getTotal(){
-        totalIN.text = String(format:"%.2f",sumIn)
-        totalOut.text = String(format:"%.2f",sumOut)
+        
+        let tIn = sumIn
+        let tOut = sumOut
+        let gIO = gapInOut
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+//        formatter.locale = NSLocale(localeIdentifier: "th_TH") as Locale
+        let fIn = formatter.string(for: tIn)
+        let fOut = formatter.string(for: tOut)
+        let fGIO = formatter.string(for: gIO)
+        
+        totalIN.text = fIn
+        totalOut.text = fOut
+        
+//        totalIN.text = String(format:"%.2f",sumIn)
+//        totalOut.text = String(format:"%.2f",sumOut)
         if gapInOut > 0 {
             gapTxt.textColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
-         gapTxt.text = String(format:"%.2f",gapInOut)
+         gapTxt.text = fGIO
         } else {
             gapTxt.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-         gapTxt.text = String(format:"%.2f",gapInOut)
+         gapTxt.text = fGIO
         }
     }
     

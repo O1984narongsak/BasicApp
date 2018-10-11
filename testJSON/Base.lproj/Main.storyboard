@@ -259,12 +259,12 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="168" id="ss0-Mb-Cum"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="Mzr-bt-QYD" firstAttribute="centerY" secondItem="xcN-Q5-2Ux" secondAttribute="centerY" id="B1F-oh-Hlc"/>
                                                         <constraint firstAttribute="width" constant="200" id="GWq-id-gNq"/>
@@ -518,11 +518,11 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="165" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3H-zr-NGf">
-                                                        <rect key="frame" x="22.5" y="10" width="120" height="20.5"/>
+                                                        <rect key="frame" x="22.5" y="13" width="120" height="14.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="120" id="GIK-9F-Run"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -539,11 +539,11 @@
                                                 <rect key="frame" x="0.0" y="40" width="165" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Te4-MU-Pnq">
-                                                        <rect key="frame" x="25" y="10" width="115" height="20.5"/>
+                                                        <rect key="frame" x="25" y="13" width="115" height="14.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="115" id="rHb-qs-6OT"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -560,11 +560,11 @@
                                                 <rect key="frame" x="0.0" y="80" width="165" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7x-Ik-qWN">
-                                                        <rect key="frame" x="20.5" y="10" width="124" height="20.5"/>
+                                                        <rect key="frame" x="20.5" y="13" width="124" height="14.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="124" id="Klw-og-yfe"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
