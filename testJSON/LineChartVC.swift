@@ -22,6 +22,8 @@ class LineChartVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //MARK: - setUp Line Chart
+    
     func setLineChart(name:[String],vaule:[Double]){
         var lineArray:[ChartDataEntry] = []
         for i in 0..<name.count {

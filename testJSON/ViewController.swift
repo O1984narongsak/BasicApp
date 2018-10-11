@@ -37,8 +37,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         tableView.dataSource = self
         
         
-        // Do any additional setup after loading the view, typically from a nib.
+
     }
+    
+    //MARK: - network load dara from JSON
     
     func downloadJson(){
         guard let downloadURL = url else {  return }
@@ -57,7 +59,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 print(actors[0].count)
                 
                 self.gold = actors
-                // TODO: - Array
+                
+                // TODO: - Array Map 
+                
                 for i in actors {
                     self.countArray.append(i.count)
                     self.Date.append(i.date)
@@ -85,6 +89,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }.resume()
     }
     
+    //MARK: - setup TableView
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
@@ -103,11 +109,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     //TODO: - total label txt
+    
     func getTotal(){
         totalTxt.text = String(sumCount)
     }
     
-    //MARK: - to chart Line
+    //MARK: - BTN VC segue to Chart Line VC
     
     @IBAction func toLineBtn(_ sender: UIButton) {
         performSegue(withIdentifier: "toLineChart", sender: self)
@@ -122,22 +129,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             
         }
     }
-    //    func setLineChart(name:[String],vaule:[Double]){
-//        var lineArray:[ChartDataEntry] = []
-//        for i in 0..<name.count {
-//            let data:ChartDataEntry = ChartDataEntry(x: Double(i),y:vaule[i])
-//            lineArray.append(data)
-//        }
-//        let linedataset:LineChartDataSet = LineChartDataSet(values: lineArray, label: "test")
-//        linedataset.setColor(#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1))
-//
-//        let linedata:LineChartData = LineChartData(dataSet: linedataset)
-//        MChart.data = linedata
-//        MChart.animate(xAxisDuration: 2, easingOption: .easeInBounce)
-//        MChart.animate(yAxisDuration: 2, easingOption: .easeInBounce)
-//    }
-
-
 
 }
 

@@ -34,6 +34,7 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var Date:[String] = []
     var balanceTotal:[Double] = []
     var revanue:[Double] = []
+    var gapArray:[Double] = []
     var sumIn:Double = 0
     var sumOut:Double = 0
     var gapInOut:Double = 0
@@ -85,6 +86,12 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                     self.sumOut += nb
                 }
                 
+                for gap in self.balanceTotal {
+                    for a in self.revanue{
+                        self.gapArray.append(gap - a)
+                    }
+                }
+                
                 self.gapInOut = self.sumIn - self.sumOut
                 
                 
@@ -95,6 +102,7 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 print(self.sumIn)
                 print(self.sumOut)
                 print(self.gapInOut)
+                print(self.gapArray)
 
                 self.getTotal()
                 
@@ -124,6 +132,7 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         return cell
     }
+    
     func getTotal(){
         totalIN.text = String(format:"%.2f",sumIn)
         totalOut.text = String(format:"%.2f",sumOut)
@@ -136,6 +145,8 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         }
     }
     
+    //MARK: - VC segue to Multi Chart line VC
+    
     @IBAction func toMultiChart(_ sender: Any) {
         performSegue(withIdentifier: "toMutiChart", sender: self)
     }
@@ -143,6 +154,10 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toMutiChart" {
             let secondVC = segue.destination as! MultiVC
+            secondVC.item = Date
+            secondVC.lineOne = balanceTotal
+            secondVC.lineTwo = revanue
+            secondVC.lineX = gapArray
         }
     }
 }
