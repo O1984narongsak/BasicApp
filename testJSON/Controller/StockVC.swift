@@ -13,6 +13,12 @@ class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISear
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet weak var sku: UILabel!
+    
+    @IBOutlet weak var stockTotal: UILabel!
+    
+    @IBOutlet weak var alertTotal: UILabel!
+    
       final let url = URL(string:"https://office.mtkserver.com/get_shop_order/get_inventory")
     
     var invent = [Stock]()
@@ -21,13 +27,17 @@ class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISear
     var countS = [String]()
     var countD = [Double]()
     var sumCount : Double = 0
+    var sumSku : Int = 0
     var currentSKU = [Stock]() //update tableView
+    
+    var skuA : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
         setUpSearchBar()
         downloadJson()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -61,7 +71,17 @@ class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISear
 
                 for num in self.countD {
                     self.sumCount += num
+                    if num < 200 {
+                        self.skuA += 1
+                    }else{
+                        self.skuA += 0
+                    }
                 }
+                
+                self.sumSku = self.invent.count
+                self.sku.text = String(self.sumSku)
+                self.stockTotal.text = String(self.sumCount)
+                self.alertTotal.text = String(self.skuA)
 
                 print(self.nameS)
                 print(self.countS)
@@ -77,7 +97,7 @@ class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISear
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 50
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -107,11 +127,15 @@ class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISear
         if a < 200 {
              cell.stockTxt.text = "!Alert"
              cell.stockTxt.textColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+//             self.skuA += 1
+            
         } else {
             cell.stockTxt.text = "Available"
             cell.stockTxt.textColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+            
         }
-        
+//        sku.text = String(self.skuA)
+//        print(self.skuA)
         return cell
     }
     
@@ -150,17 +174,4 @@ class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISear
 
 }
 
-//MARK: - Format Number
 
-extension Double {
-    static let twoFractionDigits: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.minimumFractionDigits = 2
-        formatter.maximumFractionDigits = 2
-        return formatter
-    }()
-    var formatted: String {
-        return Double.twoFractionDigits.string(for: self) ?? ""
-    }
-}
