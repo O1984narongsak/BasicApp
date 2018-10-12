@@ -21,7 +21,7 @@ class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISear
     var countS = [String]()
     var countD = [Double]()
     var sumCount : Double = 0
-    var currentSKU = [String]()
+    var currentSKU = [Stock]() //update tableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +54,9 @@ class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISear
                     self.countS.append(i.item_count)
                     self.skuNo.append(i.item_sku)
                 }
+                
+                self.currentSKU = actors.inventory
+                
                 self.countD = self.countS.map { Double($0)!}
 
                 for num in self.countD {
@@ -78,24 +81,29 @@ class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISear
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return invent.count
+//        return invent.count
+        return currentSKU.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "StockCell") as? StockCell else { return UITableViewCell() }
         
-        let price = Double(invent[indexPath.row].item_count)
+        let price = Double(currentSKU[indexPath.row].item_count)
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         let dec = formatter.string(for: price)
         
         cell.countTxt.text = dec
-        cell.noTxt.text = invent[indexPath.row].item_name
-        cell.skuTxt.text = invent[indexPath.row].item_sku
-        print(invent[indexPath.row].item_sku)
+        cell.noTxt.text = currentSKU[indexPath.row].item_name
+        cell.skuTxt.text = currentSKU[indexPath.row].item_sku
+        print(currentSKU[indexPath.row].item_sku)
         
-        let a = Int(invent[indexPath.row].item_count)!
+        //Todo: check Stock
+        
+//        checkStock(value: Int(invent[indexPath.row].item_count)!)
+        
+        let a = Int(currentSKU[indexPath.row].item_count)!
         if a < 200 {
              cell.stockTxt.text = "!Alert"
              cell.stockTxt.textColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
@@ -103,6 +111,7 @@ class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISear
             cell.stockTxt.text = "Available"
             cell.stockTxt.textColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
         }
+        
         return cell
     }
     
@@ -111,12 +120,32 @@ class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISear
         tableView.dataSource = self
     }
     
-    
+    //MARK: - Search Bar
     func setUpSearchBar(){
         searchBar.delegate = self
     }
     
-
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            currentSKU = invent
+            tableView.reloadData()
+            return }
+        currentSKU = invent.filter({ (test) -> Bool in
+             return   test.item_sku.lowercased().contains(searchText)
+        })
+        tableView.reloadData()
+    }
+    
+//    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+//        switch <#value#> {
+//        case 0:
+//        case 1:
+//            <#code#>
+//        default:
+//            <#code#>
+//        }
+//    }
+    
 
 
 }

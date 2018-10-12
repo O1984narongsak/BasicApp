@@ -176,18 +176,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ce-mh-QEV" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="56.5" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="424"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Orp-Wq-vUs">
+                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="554" id="ky4-4q-Y1k"/>
-                                    <constraint firstAttribute="width" constant="375" id="wZh-2u-Gga"/>
+                                    <constraint firstAttribute="height" constant="50" id="g5J-I5-nRP"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PZu-g3-SBC">
+                                <rect key="frame" x="0.0" y="538" width="375" height="80"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Zro-BG-7oL"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6ce-mh-QEV" firstAttribute="centerX" secondItem="ABK-Lx-kvR" secondAttribute="centerX" id="IZR-FF-aSW"/>
-                            <constraint firstItem="6ce-mh-QEV" firstAttribute="centerY" secondItem="ABK-Lx-kvR" secondAttribute="centerY" id="MaW-g8-OuP"/>
+                            <constraint firstItem="PZu-g3-SBC" firstAttribute="top" secondItem="6ce-mh-QEV" secondAttribute="bottom" id="0Lh-bI-89C"/>
+                            <constraint firstItem="PZu-g3-SBC" firstAttribute="bottom" secondItem="cQZ-ps-3Lu" secondAttribute="bottom" id="9IZ-7E-Aec"/>
+                            <constraint firstItem="PZu-g3-SBC" firstAttribute="trailing" secondItem="cQZ-ps-3Lu" secondAttribute="trailing" id="Ajg-DG-B4L"/>
+                            <constraint firstItem="Orp-Wq-vUs" firstAttribute="top" secondItem="cQZ-ps-3Lu" secondAttribute="top" id="B4T-7w-fmi"/>
+                            <constraint firstItem="6ce-mh-QEV" firstAttribute="top" secondItem="Orp-Wq-vUs" secondAttribute="bottom" id="Gnb-D7-gUm"/>
+                            <constraint firstItem="6ce-mh-QEV" firstAttribute="top" secondItem="Orp-Wq-vUs" secondAttribute="bottom" id="IJe-tf-4Hj"/>
+                            <constraint firstItem="6ce-mh-QEV" firstAttribute="trailing" secondItem="cQZ-ps-3Lu" secondAttribute="trailing" id="XeK-xi-cNi"/>
+                            <constraint firstItem="PZu-g3-SBC" firstAttribute="leading" secondItem="cQZ-ps-3Lu" secondAttribute="leading" id="dCf-zo-kdP"/>
+                            <constraint firstItem="Orp-Wq-vUs" firstAttribute="trailing" secondItem="cQZ-ps-3Lu" secondAttribute="trailing" id="ejk-UL-G1J"/>
+                            <constraint firstItem="PZu-g3-SBC" firstAttribute="top" secondItem="6ce-mh-QEV" secondAttribute="bottom" id="uy1-zu-ytx"/>
+                            <constraint firstItem="Orp-Wq-vUs" firstAttribute="leading" secondItem="cQZ-ps-3Lu" secondAttribute="leading" id="yd9-hg-eSx"/>
+                            <constraint firstItem="6ce-mh-QEV" firstAttribute="leading" secondItem="cQZ-ps-3Lu" secondAttribute="leading" id="zNW-fK-h0t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cQZ-ps-3Lu"/>
                     </view>
@@ -852,18 +872,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yon-VC-Ubf" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="56.5" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="104" width="375" height="474"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oLv-Bk-U9x">
+                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="554" id="E90-qm-A8u"/>
-                                    <constraint firstAttribute="width" constant="375" id="rAg-xs-oti"/>
+                                    <constraint firstAttribute="height" constant="40" id="TYj-v2-n2J"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYa-jO-Pza">
+                                <rect key="frame" x="0.0" y="578" width="375" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="uBc-jR-2Jz"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Yon-VC-Ubf" firstAttribute="centerX" secondItem="lj1-sr-W8i" secondAttribute="centerX" id="4H8-JT-NyU"/>
-                            <constraint firstItem="Yon-VC-Ubf" firstAttribute="centerY" secondItem="lj1-sr-W8i" secondAttribute="centerY" id="dIj-DQ-j2e"/>
+                            <constraint firstItem="SYa-jO-Pza" firstAttribute="top" secondItem="Yon-VC-Ubf" secondAttribute="bottom" id="5mJ-qm-GL0"/>
+                            <constraint firstItem="Yon-VC-Ubf" firstAttribute="trailing" secondItem="Tk8-mW-HbZ" secondAttribute="trailing" id="AxL-2w-5RW"/>
+                            <constraint firstItem="Yon-VC-Ubf" firstAttribute="leading" secondItem="Tk8-mW-HbZ" secondAttribute="leading" id="Hgb-OS-878"/>
+                            <constraint firstItem="SYa-jO-Pza" firstAttribute="top" secondItem="Yon-VC-Ubf" secondAttribute="bottom" id="KrD-b6-1TB"/>
+                            <constraint firstItem="SYa-jO-Pza" firstAttribute="leading" secondItem="Tk8-mW-HbZ" secondAttribute="leading" id="NnL-0Y-BiN"/>
+                            <constraint firstItem="Yon-VC-Ubf" firstAttribute="top" secondItem="oLv-Bk-U9x" secondAttribute="bottom" id="Ptq-lw-4qN"/>
+                            <constraint firstItem="Yon-VC-Ubf" firstAttribute="top" secondItem="oLv-Bk-U9x" secondAttribute="bottom" id="Vll-AM-csF"/>
+                            <constraint firstItem="Tk8-mW-HbZ" firstAttribute="bottom" secondItem="SYa-jO-Pza" secondAttribute="bottom" id="bnM-Sz-RJ8"/>
+                            <constraint firstItem="Tk8-mW-HbZ" firstAttribute="trailing" secondItem="SYa-jO-Pza" secondAttribute="trailing" id="bzF-LS-Kwb"/>
+                            <constraint firstItem="oLv-Bk-U9x" firstAttribute="top" secondItem="Tk8-mW-HbZ" secondAttribute="top" id="eR2-KA-HgM"/>
+                            <constraint firstItem="oLv-Bk-U9x" firstAttribute="leading" secondItem="Tk8-mW-HbZ" secondAttribute="leading" id="i4c-N7-8Rd"/>
+                            <constraint firstItem="Tk8-mW-HbZ" firstAttribute="trailing" secondItem="oLv-Bk-U9x" secondAttribute="trailing" id="xs7-9O-Voi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tk8-mW-HbZ"/>
                     </view>
@@ -873,7 +913,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N2e-TX-5FC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3737" y="108"/>
+            <point key="canvasLocation" x="3736.8000000000002" y="107.49625187406298"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="eNR-CR-bUf">
