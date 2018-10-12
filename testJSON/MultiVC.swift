@@ -27,6 +27,11 @@ class MultiVC: UIViewController {
     //MARK: - setup Multi Line Chart
     func setUpMultiChart(name:[String],vaule:[Double],vauleT:[Double],vauleX:[Double]){
         
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.locale = Locale.current
+        let valuesNumberFormatter = ChartValueFormatter(numberFormatter: numberFormatter)
+        
         lineChartV.dragEnabled = true
         lineChartV.setScaleEnabled(true)
         lineChartV.drawGridBackgroundEnabled = false
@@ -73,6 +78,8 @@ class MultiVC: UIViewController {
         var set3 = LineChartDataSet()
         
         set1 = LineChartDataSet(values: yVals1, label: "Income")
+        set1.valueFormatter = valuesNumberFormatter
+        set1.valueFormatter = set2.valueFont.withSize(CGFloat(8.0)) as? IValueFormatter
         set1.axisDependency = .left
         set1.colors = [#colorLiteral(red: 0.215686274509804, green: 0.709803921568627, blue: 0.898039215686275, alpha: 1.0)]
         set1.circleColors = [NSUIColor.purple]
@@ -86,6 +93,8 @@ class MultiVC: UIViewController {
         
         
         set2 = LineChartDataSet(values: yVals2, label: "Payment")
+        set2.valueFormatter = valuesNumberFormatter
+        set2.valueFormatter = set2.valueFont.withSize(CGFloat(7.0)) as? IValueFormatter
         set2.axisDependency = .right
         set2.colors = [NSUIColor.red]
         set2.circleColors = [NSUIColor.orange]
@@ -98,6 +107,8 @@ class MultiVC: UIViewController {
         set2.drawCircleHoleEnabled = true
         
         set3 = LineChartDataSet(values: yVals3, label: "gap")
+        set3.valueFormatter = valuesNumberFormatter
+        set3.valueFormatter = set2.valueFont.withSize(CGFloat(10.0)) as? IValueFormatter
         set3.axisDependency = .right
         set3.colors = [NSUIColor.green]
         set3.circleColors = [NSUIColor.white]
