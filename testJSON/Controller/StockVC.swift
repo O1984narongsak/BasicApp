@@ -78,9 +78,13 @@ class StockVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISear
                     }
                 }
                 
+                let formatter = NumberFormatter()
+                formatter.numberStyle = .decimal
+                let sumC = formatter.string(for: self.sumCount)
+                
                 self.sumSku = self.invent.count
                 self.sku.text = String(self.sumSku)
-                self.stockTotal.text = String(self.sumCount)
+                self.stockTotal.text = sumC
                 self.alertTotal.text = String(self.skuA)
 
                 print(self.nameS)

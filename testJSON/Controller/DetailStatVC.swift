@@ -74,17 +74,12 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                     self.Date.append(i.date)
                     self.totalOutArray.append(i.m_out)
                 }
-                self.balanceTotal = self.totalInArray.map { Double($0)!}
-                
-                for num in self.balanceTotal {
-                    self.sumIn += num
-                }
+                self.balanceTotal = self.totalInArray.map { Double($0)!}                
+                self.sumIn = self.balanceTotal.reduce(0, { ($0 + $1)})
                 
                 self.revanue = self.totalOutArray.map { Double($0)!}
-                
-                for nb in self.revanue {
-                    self.sumOut += nb
-                }
+                self.sumOut = self.revanue.reduce(0, { ($0 + $1)})
+
                 
                 for gap in self.balanceTotal {
                     for a in self.revanue{
