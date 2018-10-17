@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vnC-TG-0ji">
-                                <rect key="frame" x="0.0" y="214" width="375" height="404"/>
+                                <rect key="frame" x="0.0" y="270" width="375" height="348"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DateCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DateCell" rowHeight="107" id="ysK-kd-Vau" customClass="DateCell" customModule="testJSON" customModuleProvider="target">
@@ -41,7 +41,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="unit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcJ-r7-fcP">
-                                                            <rect key="frame" x="132" y="49" width="16" height="10"/>
+                                                            <rect key="frame" x="132" y="48.5" width="16" height="10"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                                             <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -147,25 +147,34 @@
                                     <constraint firstItem="Omc-Cx-MX2" firstAttribute="centerX" secondItem="5gc-NB-hDK" secondAttribute="centerX" id="pvW-sL-Zdw"/>
                                 </constraints>
                             </view>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="vrA-2V-xGR">
+                                <rect key="frame" x="0.0" y="214" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5gc-NB-hDK" firstAttribute="top" secondItem="PLq-Xe-B1n" secondAttribute="bottom" id="28D-B8-F4Y"/>
                             <constraint firstItem="PLq-Xe-B1n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Dgv-0G-cbT"/>
-                            <constraint firstItem="vnC-TG-0ji" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Dl3-hC-LEs"/>
                             <constraint firstItem="PLq-Xe-B1n" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="IaE-5h-Tki"/>
-                            <constraint firstItem="vnC-TG-0ji" firstAttribute="top" secondItem="5gc-NB-hDK" secondAttribute="bottom" id="T6c-ZL-4N8"/>
-                            <constraint firstItem="vnC-TG-0ji" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="T7E-az-OLr"/>
+                            <constraint firstItem="vnC-TG-0ji" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MmR-64-4tj"/>
+                            <constraint firstItem="vnC-TG-0ji" firstAttribute="top" secondItem="vrA-2V-xGR" secondAttribute="bottom" id="Nid-ml-8he"/>
                             <constraint firstItem="5gc-NB-hDK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UDi-PV-3qs"/>
-                            <constraint firstItem="vnC-TG-0ji" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UJq-Ki-jGL"/>
+                            <constraint firstItem="vrA-2V-xGR" firstAttribute="top" secondItem="5gc-NB-hDK" secondAttribute="bottom" id="Xh9-Rb-xGk"/>
                             <constraint firstItem="5gc-NB-hDK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cQr-lG-RSD"/>
                             <constraint firstItem="PLq-Xe-B1n" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fQ3-71-Yh0"/>
+                            <constraint firstItem="vnC-TG-0ji" firstAttribute="top" secondItem="vrA-2V-xGR" secondAttribute="bottom" id="jKY-h5-Ywk"/>
+                            <constraint firstItem="vrA-2V-xGR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kRv-aV-zGK"/>
+                            <constraint firstItem="vnC-TG-0ji" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="lzv-63-yPd"/>
+                            <constraint firstItem="vnC-TG-0ji" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="mgc-DU-fCh"/>
+                            <constraint firstItem="vrA-2V-xGR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="n83-On-LGw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Pwf-RV-LVz"/>
                     <connections>
                         <outlet property="MChart" destination="5gc-NB-hDK" id="8ht-yG-YOv"/>
+                        <outlet property="searchBar" destination="vrA-2V-xGR" id="xfV-fh-lFF"/>
                         <outlet property="tableView" destination="vnC-TG-0ji" id="cma-eb-Qh6"/>
                         <outlet property="totalTxt" destination="LYj-XJ-qJ0" id="zjd-hO-4GT"/>
                         <segue destination="yNH-iX-xuJ" kind="show" identifier="toLineChart" id="IVV-CQ-JkY"/>

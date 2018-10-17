@@ -9,10 +9,11 @@
 import UIKit
 import Charts
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
     
     final let url = URL(string:"http://alpha.mtkserver.com/_get_title_shop/gold_month/09/2018")
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var MChart: LineChartView!
     
     @IBOutlet weak var tableView: UITableView!
@@ -23,6 +24,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     var dataEntries: [ChartDataEntry] = []
     
+    var currentGold = [Gold]()
     
     var countArray:[String] = []
     var Date:[String] = []
@@ -35,6 +37,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         tableView.delegate = self
         tableView.dataSource = self
+        setUpSearchBar()
         
         
 
@@ -58,14 +61,17 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             
                 print(actors[0].count)
                 
-                self.gold = actors
-                
-                // TODO: - Array Map 
+                self.gold = actors.reversed()
+                self.currentGold = actors.reversed()
+//                let testG = self.currentGold.f
+                // TODO: - Array Map
                 
                 for i in actors {
                     self.countArray.append(i.count)
                     self.Date.append(i.date)
                 }
+                
+                
                 self.countChart = self.countArray.map { Double($0)!}
                 
                 for num in self.countChart {
@@ -96,20 +102,35 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gold.count
+        return currentGold.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell") as? DateCell else { return UITableViewCell() }
         
-        //TODO: - format number
-        let price = Double(gold[indexPath.row].count)
+        //TODO: - Numbers format
+        let price = Double(currentGold[indexPath.row].count)
+        
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         let formatCount = formatter.string(for: price)
-        print(formatCount as Any)
+        
+        //TODO: - Date format
+//        let dt = currentGold[indexPath.row].date
+        
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd"
+//        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
+//        let date = dateFormatter.date(from: dt)!
+//
+//        let calendar = Calendar.current
+//        let components = calendar.dateComponents([.year, .month, .day, .hour], from: date)
+//        let finalDate = calendar.date(from:components)
+//        print(finalDate)
+        
+//        print(formatCount as Any)
         cell.countTxt.text = formatCount
-        cell.dateTxt.text = gold[indexPath.row].date
+        cell.dateTxt.text = currentGold[indexPath.row].date
         
         return cell
     }
@@ -141,6 +162,22 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             secondVC.item = Date
             
         }
+    }
+    //MARK: - Searchbar 
+    
+    func setUpSearchBar(){
+        searchBar.delegate = self
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            currentGold = gold
+            tableView.reloadData()
+            return }
+        currentGold = gold.filter({ (test) -> Bool in
+            return   test.date.lowercased().contains(searchText)
+        })
+        tableView.reloadData()
     }
 
 }

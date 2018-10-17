@@ -67,7 +67,7 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 
                 print(actors[0].m_in)
                 
-                self.stat = actors
+                self.stat = actors.reversed()
                 // TODO: - Array
                 for i in actors {
                     self.totalInArray.append(i.m_in)

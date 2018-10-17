@@ -70,7 +70,14 @@ class StatVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
                     for i in actors{
                         self.incomeS += Double(i.m_in)!
                         self.payS += Double(i.m_out)!
-                        
+                        if self.incomArray.count == 0 && self.payArray.count == 0 {
+                            self.incomArray.append(Double(i.m_in)!)
+                            self.payArray.append(Double(i.m_out)!)
+                        } else {
+
+                            print(self.incomArray[0])
+
+                        }
                         //                  MARK: - Keep Dynamic data in Array      
 //                        if self.incomArray == nil  && self.payArray == nil{
 //                            self.incomArray.append(Double(i.m_in)!)
