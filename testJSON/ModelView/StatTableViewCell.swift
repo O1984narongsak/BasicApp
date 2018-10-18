@@ -12,6 +12,8 @@ class StatTableViewCell: UITableViewCell {
 
     @IBOutlet weak var statTxt: UILabel!
     
+    @IBOutlet weak var img: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

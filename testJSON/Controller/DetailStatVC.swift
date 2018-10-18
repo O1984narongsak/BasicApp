@@ -24,8 +24,11 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var img: UIImageView!
+    
     var nameP : String = ""
     var urlP : String = ""
+    var image = UIImage()
     
     var stat = [Stat]()
     
@@ -44,7 +47,9 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
         name.text = nameP
+        img.image = image
         urlP = "https://office.mtkserver.com/result_account/\(nameP)/08/2018"
         downloadJson()
 //        getTotal()
@@ -177,6 +182,7 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             secondVC.lineOne = balanceTotal
             secondVC.lineTwo = revanue
             secondVC.lineX = gapArray
+            secondVC.nameT = nameP
         }
     }
 }

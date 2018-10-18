@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
+class OrderVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
     
     final let url = URL(string:"http://alpha.mtkserver.com/_get_title_shop/gold_month/09/2018")
     
@@ -18,7 +18,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var totalTxt: UILabel!
     
     var gold = [Gold]()
     
@@ -29,7 +28,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var countArray:[String] = []
     var Date:[String] = []
     var countChart:[Double] = []
-    var sumCount:Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,21 +69,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     self.Date.append(i.date)
                 }
                 
-                
-                self.countChart = self.countArray.map { Double($0)!}
-                
-                for num in self.countChart {
-                    self.sumCount += num
-                }
+//                self.countChart = self.countArray.map { Double($0)!}
                 
                 print(self.countArray)
                 print(self.Date)
                 print(self.countChart)
-                print(self.sumCount)
-                
-                self.getTotal()
-//
-//                self.setLineChart(name: self.Date, vaule: self.countChart )
+
                 self.tableView.reloadData()
                 
                 
@@ -115,20 +104,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         formatter.numberStyle = .decimal
         let formatCount = formatter.string(for: price)
         
-        //TODO: - Date format
-//        let dt = currentGold[indexPath.row].date
-        
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd"
-//        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
-//        let date = dateFormatter.date(from: dt)!
-//
-//        let calendar = Calendar.current
-//        let components = calendar.dateComponents([.year, .month, .day, .hour], from: date)
-//        let finalDate = calendar.date(from:components)
-//        print(finalDate)
-        
-//        print(formatCount as Any)
+
         cell.countTxt.text = formatCount
         cell.dateTxt.text = currentGold[indexPath.row].date
         
@@ -137,33 +113,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //TODO: - total label txt
     
-    func getTotal(){
-        
-        let su = sumCount
-        
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        let sumC = formatter.string(for: su )
-        
-        totalTxt.text = sumC
-    }
+//    func getTotal(){
+//
+//        let su = sumCount
+//
+//        let formatter = NumberFormatter()
+//        formatter.numberStyle = .decimal
+//        let sumC = formatter.string(for: su )
+//
+//        totalTxt.text = sumC
+//    }
     
-    //MARK: - BTN VC segue to Chart Line VC
-    
-    @IBAction func toLineBtn(_ sender: UIButton) {
-        performSegue(withIdentifier: "toLineChart", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toLineChart" {
-            let secondVC = segue.destination as! LineChartVC
-            
-            secondVC.test = countChart
-            secondVC.item = Date
-            
-        }
-    }
-    //MARK: - Searchbar 
+ 
+    //MARK: - Searchbar
     
     func setUpSearchBar(){
         searchBar.delegate = self
@@ -186,3 +148,33 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
 
 
+//TODO: - Date format
+//        let dt = currentGold[indexPath.row].date
+
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd"
+//        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
+//        let date = dateFormatter.date(from: dt)!
+//
+//        let calendar = Calendar.current
+//        let components = calendar.dateComponents([.year, .month, .day, .hour], from: date)
+//        let finalDate = calendar.date(from:components)
+//        print(finalDate)
+
+//        print(formatCount as Any)
+
+//MARK: - BTN VC segue to Chart Line VC
+
+//    @IBAction func toLineBtn(_ sender: UIButton) {
+//        performSegue(withIdentifier: "toLineChart", sender: self)
+//    }
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toLineChart" {
+//            let secondVC = segue.destination as! LineChartVC
+//
+//            secondVC.test = countChart
+//            secondVC.item = Date
+//
+//        }
+//    }

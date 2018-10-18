@@ -17,10 +17,15 @@ class MultiVC: UIViewController {
     var lineOne = [Double]()
     var lineTwo = [Double]()
     var lineX = [Double]()
+    var nameT : String = ""
+    
+    @IBOutlet weak var nameTxt: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpMultiChart(name: item, vaule: lineOne, vauleT: lineTwo, vauleX: lineX)
+        nameTxt.text = nameT
         // Do any additional setup after loading the view.
     }
     
@@ -144,4 +149,21 @@ class MultiVC: UIViewController {
     }
     
 
+}
+
+class ChartValueFormatter: NSObject, IValueFormatter {
+    fileprivate var numberFormatter: NumberFormatter?
+    
+    convenience init(numberFormatter: NumberFormatter) {
+        self.init()
+        self.numberFormatter = numberFormatter
+    }
+    
+    func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
+        guard let numberFormatter = numberFormatter
+            else {
+                return ""
+        }
+        return numberFormatter.string(for: value)!
+    }
 }

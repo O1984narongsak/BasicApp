@@ -13,6 +13,7 @@ class StatVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     var name = ["mgd_month","mtk_month","beauty_month","jew_month"]
+//    var image = []
     var incomeS: Double = 0
     var payS:Double = 0
     var gapS:Double = 0
@@ -40,13 +41,19 @@ class StatVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StatTableViewCell",for: indexPath ) as? StatTableViewCell
+        
         cell?.statTxt.text = name[indexPath.row]
+        cell?.img.image = UIImage(named: name[indexPath.row])
         return cell!
     }
     
+    //TODO: - Parse data to New VC
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "DetailStatVC") as? DetailStatVC
+        
         vc?.nameP = name[indexPath.row]
+        vc?.image = UIImage(named: name[indexPath.row])!
+        
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
