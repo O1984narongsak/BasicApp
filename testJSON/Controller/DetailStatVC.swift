@@ -26,6 +26,7 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var img: UIImageView!
     
+    var nameL : String = ""
     var nameP : String = ""
     var urlP : String = ""
     var image = UIImage()
@@ -48,7 +49,7 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
-        name.text = nameP
+        name.text = nameL
         img.image = image
         urlP = "https://office.mtkserver.com/result_account/\(nameP)/08/2018"
         downloadJson()
@@ -130,13 +131,15 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let mI = Double(stat[indexPath.row].m_in)
         
         let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
+        formatter.numberStyle = .decimal
 //        formatter.locale = NSLocale(localeIdentifier: "th_TH") as Locale
         let mIn = formatter.string(for: mI)
         let mOut = formatter.string(for: mO)
         
-        cell.inTxt.text = mIn
-        cell.outTxt.text = mOut
+//        let iT = mIn
+//        let Ot = mOut
+        cell.inTxt.text = "฿ " + mIn!
+        cell.outTxt.text = "฿ " + mOut!
         cell.dateTxt.text = stat[indexPath.row].date
         
         return cell
@@ -149,23 +152,23 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let gIO = gapInOut
         
         let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
+        formatter.numberStyle = .decimal
 //        formatter.locale = NSLocale(localeIdentifier: "th_TH") as Locale
         let fIn = formatter.string(for: tIn)
         let fOut = formatter.string(for: tOut)
         let fGIO = formatter.string(for: gIO)
         
-        totalIN.text = fIn
-        totalOut.text = fOut
+        totalIN.text = "฿ " + fIn!
+        totalOut.text = "฿ " + fOut!
         
 //        totalIN.text = String(format:"%.2f",sumIn)
 //        totalOut.text = String(format:"%.2f",sumOut)
         if gapInOut > 0 {
             gapTxt.textColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
-         gapTxt.text = fGIO
+         gapTxt.text = "฿ " + fGIO!
         } else {
             gapTxt.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-         gapTxt.text = fGIO
+         gapTxt.text = "฿ " + fGIO!
         }
     }
     

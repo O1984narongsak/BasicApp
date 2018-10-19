@@ -13,6 +13,7 @@ class StatVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     var name = ["mgd_month","mtk_month","beauty_month","jew_month"]
+    var brand = ["MTK Racing","MTK TECH","MTK Beauty","MTK Jew"]
 //    var image = []
     var incomeS: Double = 0
     var payS:Double = 0
@@ -42,7 +43,7 @@ class StatVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StatTableViewCell",for: indexPath ) as? StatTableViewCell
         
-        cell?.statTxt.text = name[indexPath.row]
+        cell?.statTxt.text = brand[indexPath.row]
         cell?.img.image = UIImage(named: name[indexPath.row])
         return cell!
     }
@@ -51,6 +52,7 @@ class StatVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "DetailStatVC") as? DetailStatVC
         
+        vc?.nameL = brand[indexPath.row]
         vc?.nameP = name[indexPath.row]
         vc?.image = UIImage(named: name[indexPath.row])!
         
