@@ -10,6 +10,7 @@
 		42F2CCF861DD6758F3513C97 /* Pods_testJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E39C9D513EA847559083BBF /* Pods_testJSON.framework */; };
 		F109BC1C21797E5600258D88 /* MainTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F109BC1B21797E5600258D88 /* MainTabVC.swift */; };
 		F109BC1E21797FDF00258D88 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F109BC1D21797FDF00258D88 /* LogInVC.swift */; };
+		F109BC202179CB1600258D88 /* OverViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F109BC1F2179CB1600258D88 /* OverViewVC.swift */; };
 		F112E42C216E067D00B216C9 /* MultiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F112E42B216E067D00B216C9 /* MultiVC.swift */; };
 		F148CD81216C7F5E0020A7D4 /* StatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F148CD80216C7F5E0020A7D4 /* StatVC.swift */; };
 		F148CD83216C7F970020A7D4 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F148CD82216C7F970020A7D4 /* Stat.swift */; };
@@ -35,6 +36,7 @@
 		EA7F3372A57DB4EB83247B9D /* Pods-testJSON.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testJSON.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testJSON/Pods-testJSON.debug.xcconfig"; sourceTree = "<group>"; };
 		F109BC1B21797E5600258D88 /* MainTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabVC.swift; sourceTree = "<group>"; };
 		F109BC1D21797FDF00258D88 /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
+		F109BC1F2179CB1600258D88 /* OverViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewVC.swift; sourceTree = "<group>"; };
 		F112E42B216E067D00B216C9 /* MultiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiVC.swift; sourceTree = "<group>"; };
 		F148CD80216C7F5E0020A7D4 /* StatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatVC.swift; sourceTree = "<group>"; };
 		F148CD82216C7F970020A7D4 /* Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
@@ -127,8 +129,9 @@
 				F148CD80216C7F5E0020A7D4 /* StatVC.swift */,
 				F148CD86216C89EA0020A7D4 /* DetailStatVC.swift */,
 				F148CD8A216CBA930020A7D4 /* StockVC.swift */,
-				F112E42B216E067D00B216C9 /* MultiVC.swift */,
 				F149B7ED216B4D17005B74B4 /* OrderVC.swift */,
+				F109BC1F2179CB1600258D88 /* OverViewVC.swift */,
+				F112E42B216E067D00B216C9 /* MultiVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			files = (
 				F149B7EE216B4D17005B74B4 /* OrderVC.swift in Sources */,
 				F148CD8B216CBA940020A7D4 /* StockVC.swift in Sources */,
+				F109BC202179CB1600258D88 /* OverViewVC.swift in Sources */,
 				F148CD8F216CBE1C0020A7D4 /* Stock.swift in Sources */,
 				F148CD83216C7F970020A7D4 /* Stat.swift in Sources */,
 				F149B7FE216B51BB005B74B4 /* DateCell.swift in Sources */,
