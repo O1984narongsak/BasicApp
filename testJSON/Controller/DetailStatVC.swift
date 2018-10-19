@@ -136,8 +136,6 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let mIn = formatter.string(for: mI)
         let mOut = formatter.string(for: mO)
         
-//        let iT = mIn
-//        let Ot = mOut
         cell.inTxt.text = "฿ " + mIn!
         cell.outTxt.text = "฿ " + mOut!
         cell.dateTxt.text = stat[indexPath.row].date
