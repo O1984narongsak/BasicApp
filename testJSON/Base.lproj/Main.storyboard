@@ -420,7 +420,7 @@
                                     <constraint firstAttribute="height" constant="60" id="Ob9-Nv-BP3"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hre-Ed-dGy">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hre-Ed-dGy" customClass="LineChartView" customModule="Charts">
                                 <rect key="frame" x="0.0" y="124" width="375" height="414"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
