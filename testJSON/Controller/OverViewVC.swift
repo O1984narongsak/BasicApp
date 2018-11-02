@@ -14,14 +14,27 @@ class OverViewVC: UIViewController {
 //    weak var lineChartV: LineChartView!
     @IBOutlet weak var lineChartV: LineChartView!
     
+    
+    @IBOutlet weak var netTxt: UILabel!
+    @IBOutlet weak var payTxt: UILabel!
+    @IBOutlet weak var revTxt: UILabel!
     var item = [String]()
     var lineOne = [Double]()
     var lineTwo = [Double]()
     var lineX = [Double]()
     
+    var netP : String = ""
+    var revP : String = ""
+    var payP : String = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpMultiChart(name: item, vaule: lineOne, vauleT: lineTwo, vauleX: lineX)
+        
+        netTxt.text = "Net: " + netP
+        revTxt.text = "Revanue: " + revP
+        payTxt.text = "Payment: " + payP
         // Do any additional setup after loading the view.
     }
     

@@ -20,6 +20,7 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var totalOut: UILabel!
     
+    @IBOutlet weak var chartBtn: UIButton!
     @IBOutlet weak var gapTxt: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
@@ -48,7 +49,7 @@ class DetailStatVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
+        chartBtn.layer.cornerRadius = 10.0
         name.text = nameL
         img.image = image
         urlP = "https://office.mtkserver.com/result_account/\(nameP)/08/2018"

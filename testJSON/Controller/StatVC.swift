@@ -168,12 +168,19 @@ class StatVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
                     print(self.fill.count)
                     print("plus\(t)")
                     print("fill\(h)")
+                    let formatter = NumberFormatter()
+                    formatter.numberStyle = .decimal
                     
-                    self.fillS = String(t)
-                    self.plusS = String(h)
-                    self.gapFpS = String(h - t)
+                    self.fillS = formatter.string(for: t)!
+                    self.plusS = formatter.string(for: h)!
+                    self.gapFpS = formatter.string(for: h - t)!
                     
-                    self.tableView.reloadData()
+//                    self.fillS = String(fIn)
+//                    self.plusS = String(fOut)
+//                    self.gapFpS = String(fGIO)
+                  
+                    
+//                    self.tableView.reloadData()
                 } catch {
                     print("something wrong after downloaded")
                 }
@@ -182,6 +189,9 @@ class StatVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
     
     }
     
+    @IBAction func logoutBtn(_ sender: UIBarButtonItem) {
+         dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func toOverBtn(_ sender: UIButton) {
         performSegue(withIdentifier: "toOverView", sender: self)
@@ -194,7 +204,9 @@ class StatVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
             secondVC.lineOne = fill
             secondVC.lineTwo = plus
             secondVC.lineX = gapFP
-            
+            secondVC.netP = gapFpS
+            secondVC.payP = plusS
+            secondVC.revP = fillS
         }
     }
     
